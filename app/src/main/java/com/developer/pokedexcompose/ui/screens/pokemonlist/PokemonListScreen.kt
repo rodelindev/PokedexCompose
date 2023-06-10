@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
@@ -194,13 +195,14 @@ fun PokedexEntry(
                 contentDescription = entry.pokemonName,
                 modifier = Modifier
                     .size(120.dp)
-                    .align(CenterHorizontally)
-            ) /*{
-                CircularProgressIndicator(
-                    color = MaterialTheme.colors.primary,
-                    modifier = Modifier.scale(0.5f)
-                )
-            }*/
+                    .align(CenterHorizontally),
+                loading = {
+                    CircularProgressIndicator(
+                        color = MaterialTheme.colors.primary,
+                        modifier = Modifier.scale(0.5f)
+                    )
+                }
+            )
             Text(
                 text = entry.pokemonName,
                 fontFamily = RobotoCondensed,
