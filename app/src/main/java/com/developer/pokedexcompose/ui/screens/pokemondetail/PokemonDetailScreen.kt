@@ -7,10 +7,10 @@ import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
@@ -78,7 +78,7 @@ fun PokemonDetailScreen(
                 )
                 .shadow(10.dp, RoundedCornerShape(10.dp))
                 .clip(RoundedCornerShape(10.dp))
-                .background(MaterialTheme.colors.surface)
+                .background(MaterialTheme.colorScheme.surface)
                 .padding(16.dp)
                 .align(Alignment.BottomCenter),
             loadingModifier = Modifier
@@ -165,7 +165,7 @@ fun PokemonDetailStateWrapper(
         }
         is Resource.Loading -> {
             CircularProgressIndicator(
-                color = MaterialTheme.colors.primary,
+                color = MaterialTheme.colorScheme.primary,
                 modifier = loadingModifier
             )
         }
@@ -190,7 +190,7 @@ fun PokemonDetailSection(
             fontWeight = FontWeight.Bold,
             fontSize = 30.sp,
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colors.onSurface
+            color = MaterialTheme.colorScheme.onSurface
         )
         PokemonTypeSection(types = pokemonInfo.types)
         PokemonDetailDataSection(
@@ -276,11 +276,11 @@ fun PokemonDetailDataItem(
         verticalArrangement = Arrangement.Center,
         modifier = modifier
     ) {
-        Icon(painter = dataIcon, contentDescription = null, tint = MaterialTheme.colors.onSurface)
+        Icon(painter = dataIcon, contentDescription = null, tint = MaterialTheme.colorScheme.onSurface)
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = "$dataValue$dataUnit",
-            color = MaterialTheme.colors.onSurface
+            color = MaterialTheme.colorScheme.onSurface
         )
     }
 }
@@ -359,7 +359,7 @@ fun PokemonBaseStats(
         Text(
             text = "Base stats:",
             fontSize = 20.sp,
-            color = MaterialTheme.colors.onSurface
+            color = MaterialTheme.colorScheme.onSurface
         )
         Spacer(modifier = Modifier.height(4.dp))
 

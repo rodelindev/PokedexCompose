@@ -8,7 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
@@ -43,7 +43,7 @@ fun PokemonListScreen(
     viewModel: PokemonListViewModel = hiltViewModel()
 ) {
     Surface(
-        color = MaterialTheme.colors.background,
+        color = MaterialTheme.colorScheme.background,
         modifier = Modifier.fillMaxSize()
     ) {
         Column {
@@ -138,7 +138,7 @@ fun PokemonList(
         modifier = Modifier.fillMaxSize()
     ) {
         if (isLoading) {
-            CircularProgressIndicator(color = MaterialTheme.colors.primary)
+            CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
         }
         if (loadError.isNotEmpty()) {
             RetrySection(error = loadError) {
@@ -156,7 +156,7 @@ fun PokedexEntry(
     modifier: Modifier = Modifier,
     viewModel: PokemonListViewModel = hiltViewModel()
 ) {
-    val defaultDominantColor = MaterialTheme.colors.surface
+    val defaultDominantColor = MaterialTheme.colorScheme.surface
     var dominantColor by remember {
         mutableStateOf(defaultDominantColor)
     }
@@ -198,7 +198,7 @@ fun PokedexEntry(
                     .align(CenterHorizontally),
                 loading = {
                     CircularProgressIndicator(
-                        color = MaterialTheme.colors.primary,
+                        color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.scale(0.5f)
                     )
                 }
